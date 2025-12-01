@@ -1,194 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ZAS Messeagentur</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="ZAS Messeagentur – Planung, Design und Umsetzung moderner Messestände."
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Inter"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                dark: '#0f172a',
+                gold: '#f59e0b',
+                goldHover: '#d97706',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0f172a;
+        color: white;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
   <body>
-    <header class="nav">
-      <div class="container nav-inner">
-        <div class="logo">ZAS<span>Messeagentur</span></div>
-        <nav class="nav-links">
-          <a href="#about">Über uns</a>
-          <a href="#services">Leistungen</a>
-          <a href="#projects">Projekte</a>
-          <a href="#contact">Kontakt</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- HERO -->
-      <section class="hero">
-        <div class="container hero-inner">
-          <div class="hero-text">
-            <h1>Wir machen Marken erlebbar.</h1>
-            <p>
-              ZAS Messeagentur begleitet Sie von der ersten Idee bis zum
-              fertigen Messestand – kreativ, zuverlässig und voll auf Ihre
-              Zielgruppe abgestimmt.
-            </p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn primary">Projekt anfragen</a>
-              <a href="#projects" class="btn secondary">Referenzen ansehen</a>
-            </div>
-          </div>
-          <div class="hero-image">
-            <div class="mockup-card">
-              <h2>Messestand-Konzept</h2>
-              <p>Architektur, Licht, Medien und Marke in einer klaren Linie.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about" class="section">
-        <div class="container two-column">
-          <div>
-            <h2>Über ZAS</h2>
-            <p>
-              Wir sind eine inhabergeführte Messeagentur mit Fokus auf
-              individuelle, hochwertige Markenauftritte. Ob kompakter
-              Systemstand oder architektonisch anspruchsvolle Fläche – wir
-              entwickeln ein Konzept, das zu Ihrem Unternehmen passt.
-            </p>
-          </div>
-          <div class="key-facts">
-            <div class="fact">
-              <span class="fact-number">15+</span>
-              <span class="fact-label">Jahre Erfahrung</span>
-            </div>
-            <div class="fact">
-              <span class="fact-number">120+</span>
-              <span class="fact-label">umgesetzte Projekte</span>
-            </div>
-            <div class="fact">
-              <span class="fact-number">Europaweit</span>
-              <span class="fact-label">Messeauftritte</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section id="services" class="section section-alt">
-        <div class="container">
-          <h2>Leistungen</h2>
-          <div class="cards">
-            <article class="card">
-              <h3>Konzeption & Strategie</h3>
-              <p>
-                Analyse Ihrer Ziele, Zielgruppen und Wettbewerber – danach
-                entwickeln wir einen klaren, messbaren Messeauftritt.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Design & Architektur</h3>
-              <p>
-                3D-Visualisierungen, Grundrisse und Materialkonzepte, die Ihre
-                Marke modern und wiedererkennbar inszenieren.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Full-Service Umsetzung</h3>
-              <p>
-                Technik, Logistik, Aufbau, Abbau – wir koordinieren alle
-                Gewerke, damit Sie sich auf Ihre Besucher konzentrieren können.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="section">
-        <div class="container">
-          <h2>Ausgewählte Projekte</h2>
-          <div class="cards">
-            <article class="card project">
-              <h3>Architektur & Bau</h3>
-              <p>
-                Offener Stand mit klaren Linien, Holz- und Betonoptik,
-                großzügigen Besprechungsbereichen und integrierten Medienflächen.
-              </p>
-            </article>
-            <article class="card project">
-              <h3>Technologie & IT</h3>
-              <p>
-                Lichtinstallationen, LED-Walls und interaktive Touchpoints, die
-                komplexe Produkte verständlich machen.
-              </p>
-            </article>
-            <article class="card project">
-              <h3>Lifestyle & Design</h3>
-              <p>
-                Emotionales Markenerlebnis mit Lounge-Bereich, Produktinseln und
-                atmosphärischer Beleuchtung.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="section section-alt">
-        <div class="container two-column">
-          <div>
-            <h2>Kontakt</h2>
-            <p>
-              Planen Sie einen Messeauftritt oder möchten Sie Ihr bestehendes
-              Konzept modernisieren? Schreiben Sie uns – wir melden uns mit
-              einem unverbindlichen Vorschlag.
-            </p>
-            <ul class="contact-list">
-              <li><strong>E-Mail:</strong> info@zas-messeagentur.de</li>
-              <li><strong>Telefon:</strong> +49 (0) 123 456 789</li>
-              <li><strong>Standort:</strong> Deutschland</li>
-            </ul>
-          </div>
-          <form class="contact-form" onsubmit="handleSubmit(event)">
-            <label>
-              Name
-              <input type="text" name="name" required />
-            </label>
-            <label>
-              Unternehmen
-              <input type="text" name="company" />
-            </label>
-            <label>
-              E-Mail
-              <input type="email" name="email" required />
-            </label>
-            <label>
-              Nachricht
-              <textarea name="message" rows="4" required></textarea>
-            </label>
-            <button type="submit" class="btn primary full-width">
-              Anfrage senden
-            </button>
-            <p class="form-hint">
-              Das Formular dient nur als Demo – bitte nutzen Sie für echte
-              Anfragen Ihre reale Kontaktadresse.
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-inner">
-        <span>© <span id="year"></span> ZAS Messeagentur</span>
-        <span>Impressum · Datenschutz</span>
-      </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <div id="root"></div>
   </body>
 </html>
