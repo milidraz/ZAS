@@ -3,7 +3,7 @@ import { SectionId } from '../types';
 
 const Footer: React.FC = () => {
   return (
-    <footer id={SectionId.CONTACT} className="bg-black py-20 border-t border-white/10">
+    <footer className="bg-black py-20 border-t border-white/10">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">

@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
   return (
     <section 
       id={SectionId.START}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-28"
     >
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">

@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <section id={SectionId.ABOUT} className="py-24 bg-brand-dark relative overflow-hidden">
+    <section id={SectionId.ABOUT} className="py-24 bg-brand-dark relative overflow-hidden scroll-mt-28">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none" />
       

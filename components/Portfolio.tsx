@@ -10,7 +10,7 @@ const projects = [
 
 const Portfolio: React.FC = () => {
   return (
-    <section id={SectionId.PORTFOLIO} className="py-24 bg-[#0a101e]">
+    <section id={SectionId.PORTFOLIO} className="py-24 bg-[#0a101e] scroll-mt-28">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>

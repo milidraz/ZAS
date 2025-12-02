@@ -11,12 +11,37 @@ const navItems: NavItem[] = [
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>(SectionId.START);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Scroll Spy Logic
+      const scrollPosition = window.scrollY + 150; // Offset for header
+      
+      const sections = navItems.map(item => {
+        const id = item.href.substring(1);
+        const element = document.getElementById(id);
+        return { 
+          id, 
+          offset: element ? element.offsetTop : 0,
+          height: element ? element.offsetHeight : 0
+        };
+      });
+
+      const current = sections.find(section => 
+        scrollPosition >= section.offset && 
+        scrollPosition < section.offset + section.height
+      );
+
+      if (current) {
+        setActiveSection(current.id);
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -39,15 +64,20 @@ const Header: React.FC = () => {
         {/* Navigation & Button - Always Horizontal */}
         <div className="flex items-center gap-6 lg:gap-10 xl:gap-12 ml-auto overflow-x-auto scrollbar-hide">
           <nav className="flex items-center gap-4 lg:gap-8">
-            {navItems.map((item) => (
-              <a 
-                key={item.label} 
-                href={item.href}
-                className="text-xs lg:text-sm font-medium tracking-[0.15em] text-white/80 hover:text-brand-gold transition-colors duration-200 uppercase whitespace-nowrap"
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.substring(1);
+              return (
+                <a 
+                  key={item.label} 
+                  href={item.href}
+                  className={`text-xs lg:text-sm font-medium tracking-[0.15em] transition-colors duration-200 uppercase whitespace-nowrap ${
+                    isActive ? 'text-brand-gold' : 'text-white/80 hover:text-brand-gold'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </nav>
           
           <a 
